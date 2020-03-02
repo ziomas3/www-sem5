@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    div:nth-child(odd) {background:#eee} /* sprawia, że kazdy nieparzysty element div ma szare tło */
+</style>
+</head>
+<body>
+<script>
+  var a=[];    	//tworzy pusta tablice
+  var i;		//tworzy pusta zmienna
+  var s='';		//tworzy tablice znakow(string) posiadajaca 1 element (znak spacji)
+  for(i=0;i<1000;i++) 	//iteruje od 0 do 999	
+    a[ i]=i;			//przypisuje danemu miejscu w tablicy jego wartosc rowna indexowi tablicy
+  for(i=0;i<1000;i++)	//iteruje od 0 do 999
+    s+="<div>"+a[i]+"</div>"; 	//dopisuje do tablicy znakow kolejne elementy: znacznik div, dana wartosc z tablicy a, zamkniecie znacznika div
+  document.body.innerHTML+=s;	//dopisuje do zawartosci 'ciala' dokumentu wartosc tablicy s
+</script>
+
+</body>
+</html>

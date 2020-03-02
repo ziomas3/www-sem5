@@ -1,0 +1,81 @@
+<!doctype html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Zadanie 5</title>
+</head>
+
+<body>
+
+    <svg width="800" height="400">
+        <circle id="c1" cx="110" cy="110" r="100" style="fill: none; stroke: blue; stroke-width:15" />
+        <circle id="c2" cx="225" cy="210" r="100" style="fill: none; stroke: yellow; stroke-width: 15; " />
+        <circle id="c3" cx="340" cy="110" r="100" style="fill: none; stroke: black; stroke-width: 15; " />
+        <circle id="c4" cx="455" cy="210" r="100" style="fill: none; stroke: green; stroke-width: 15; " />
+        <circle id="c5" cx="570" cy="110" r="100" style="fill: none; stroke: red; stroke-width: 15; " />
+        <path  d="m200 65 q20 50 0 90" fill="transparent" stroke-width="15" stroke="blue" />
+        <path  d="m230 110 q20 0 40 10" fill="transparent" stroke-width="15" stroke="yellow" />
+        <path  d="m430 65 q20 50 0 90" fill="transparent" stroke-width="15" stroke="black" />
+        <path  d="m460 110 q20 0 40 10" fill="transparent" stroke-width="15" stroke="green" />
+		<animate 
+		xlink:href="#c1"
+		attributeName="cx"
+		from="110"
+		to="120" 
+		dur="1s"
+		begin="click"
+		fill="freeze" />
+		
+		<animate 
+		xlink:href="#c2"
+		attributeName="cy"
+		from="210"
+		to="140" 
+		dur="1s"
+		begin="click"
+		fill="freeze" />
+		
+		<animate 
+		xlink:href="#c3"
+		attributeName="r"
+		from="100"
+		to="50" 
+		dur="2s"
+		begin="click"
+		fill="freeze" />
+		
+		<animate 
+		xlink:href="#c4"
+		attributeName="stroke"
+		from="green"
+		to="magenta" 
+		dur="1s"
+		begin="click"
+		fill="freeze" />
+		
+		<animate 
+		xlink:href="#c5"
+		attributeName="fill"
+		from="none"
+		to="purple" 
+		dur="1s"
+		begin="click"
+		fill="freeze" />
+		
+    </svg>
+	<script>
+	$(document).ready(function(){
+		$("#c1").mouseover(function(){
+			$(this).css("background-color","yellow");
+			$(this).animate({
+				height: '25px',
+				width: '25px'
+			},20);
+		});
+	});
+	</script
+</body>
+
+</html>

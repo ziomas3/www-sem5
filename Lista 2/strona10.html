@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>strona 10</title>
+  <style>
+  
+  </style>
+</head>
+
+<body>
+    <button onclick="last()">Poprzednie</button>
+    <button onclick="next()">Nastepne</button>
+        <img id="zdjecie">
+        <script>
+            var img=document.getElementById("zdjecie")
+            i=1;
+            img.src="a"+i+".jpg";
+        function last()
+        {
+            if (i==1)
+            i=10;
+            else
+            i--;
+            img.src="a"+i+".jpg";
+        }
+        function next()
+        {
+            if (i==10)
+            i=1;
+            else
+            i++;
+            img.src="a"+i+".jpg";
+        }
+        </script>
+        
+        
+ </body>
+</html>

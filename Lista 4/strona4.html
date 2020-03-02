@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>strona 4</title>
+</head>
+
+<body>
+    <div id="lista">
+    </div>
+    <button onclick="pokaz('fizyka')">Fizyka</button>
+    <button onclick="pokaz('chemia')">Chemia</button>
+    <button onclick="pokaz('biologia')">Biologia</button>
+    <script>
+        var student = [
+            { imie: "Ola", nazwisko: "Lis", kierunek: "fizyka" },
+            { imie: "Ala", nazwisko: "Góral", kierunek: "chemia" },
+            { imie: "Jan", nazwisko: "Nowak", kierunek: "fizyka" },
+            { imie: "Olaf", nazwisko: "Wąż", kierunek: "fizyka" },
+            { imie: "Maciej", nazwisko: "Królikowski", kierunek: "bilogia" },
+            { imie: "Sebastian", nazwisko: "Saj", kierunek: "fizyka" },
+            { imie: "Mika", nazwisko: "Ban", kierunek: "biologia" },
+            { imie: "Alojzy", nazwisko: "Makaron", kierunek: "chemia" },
+            { imie: "Mirosław", nazwisko: "Mikke", kierunek: "fizyka" },
+            { imie: "Norbert", nazwisko: "Banan", kierunek: "biologia" },
+            { imie: "Ewelina", nazwisko: "Góral", kierunek: "chemia" },
+            { imie: "Michał", nazwisko: "Skiba", kierunek: "fizyka" },
+            { imie: "Aleksander", nazwisko: "Gruz", kierunek: "fizyka" },
+        ];
+        function pokaz(kierunek) {
+            var x = '<h2>'+kierunek+'</h2><ol>';
+            for (i = 0; i < student.length; i++) {
+                if (student[i].kierunek === kierunek) {
+                    x += '<li>'+student[i].imie + " " + student[i].nazwisko + '</li>';
+                }
+            }
+            x+= '</ol>';
+            document.getElementById("lista").innerHTML = x;
+        }
+
+    </script>
+</body>
+
+</html>

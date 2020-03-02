@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <style>
+       table,p {background:black;margin:auto;}
+       td {height:100px;width:100px;border-radius:50px;}
+       p {height:300px;width:20px;}
+    </style>
+</head>
+
+
+
+<body>
+
+<table>
+    <tr><td id='r'></td></tr>
+    <tr><td id='y'></td></tr>
+    <tr><td id='g'></td></tr>
+</table>
+<p></p>
+
+</body>
+
+
+
+<script>
+  
+  var r=document.getElementById('r');    //selektory objektów o danym id
+  var y=document.getElementById('y');    
+  var g=document.getElementById('g');    
+  var i=9; //tworzy zmienna z wartoscia poczatkowa 9
+  
+   
+  function kolory(a,b,c) //funkcja przyjmuje 3 zmienne, ktore ustawia jako wartosc tla obiektow
+  {
+      r.style.background=a;
+      y.style.background=b;
+      g.style.background=c;
+  }
+
+  
+   function zmiana_swiatel() 
+   {
+       i=(i+1)%10; // zmiana licznika wzgledem reszty z dzielenia 
+       if(i==0) kolory('red','black','black'); //pojawia sie tylko czerwone swiatlo reszta jest czarna (zlana z tlem)
+       if(i==4) kolory('red','yellow','black');//pojawia sie czerwone i zolte swiatlo, zielone jest czarne
+       if(i==5) kolory('black','black','green');//pojawia tylko sie zielone swiatlo reszta jest czarna
+       if(i==9) kolory('black','yellow','black');//pojawia tylko sie zolte swiatlo reszta jest czarna
+   } 
+
+   
+   setInterval (zmiana_swiatel,1000); // uruchom zmianę świateł raz co sekundę
+   
+</script>
+
+</html>

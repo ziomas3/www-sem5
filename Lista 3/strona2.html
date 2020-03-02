@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8"> 
+		<title>Strona 2</title> 
+		<style>
+			table {border-collapse:collapse}						/* usuwa odstepy pomiedzy ramkami */
+			td {width:50px; height:50px; border:1px solid grey;}	/*  wlacza rysowanie ramek */
+			tr:nth-child(odd) td:nth-child(odd) {background:#ddd}	/* sprawia, ze w nieparzystych wierszach nieparzyste kolumny staja sie szare */
+			tr:nth-child(even) td:nth-child(even) {background:#ddd}	/* sprawia, ze w parzystych wierszach parzyste kolumny staja sie szare */
+		</style>
+	</head>
+	<body>
+        <script>
+        function f()
+        {
+            var tabela = document.querySelectorAll("td");
+            for (var i=0;i <tabela.length;i++)
+            tabela[i].textContent=i+1;
+        }
+        function g()
+        {
+            var tabela = document.querySelectorAll("tr");
+            for (var i=0;i <tabela.length;i++)
+            tabela[i].insertCell(0);
+        }
+        function h()
+        {
+            var tabela = document.querySelectorAll("td");
+            for (var i=0;i <tabela.length;i++)
+            tabela[i].textContent=" ";
+        }
+        function j()
+        {
+            var tabela = document.querySelectorAll("tr");
+            for (var i=0;i <tabela.length;i++)
+            tabela[i].textContent=" ";
+            console.log(tabela[0].cells.length)
+        }
+        </script>
+        <button onclick="f()">Liczby</button>
+        <button onclick="g()">Dodatkowa komórka</button>
+        <button onclick="h()">Wyczysc</button>
+        <button onclick="j()">Usun</button>
+	
+		<table>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td><td></td><td></td></tr>
+		</table>
+	
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang=pl>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+Wybierz kolor tła: 
+<select onchange="document.body.style.background=this.value">
+        <option>white</option>
+        <option>blue</option>
+        <option>yellow</option>
+        <option>red</option>
+        <option>green</option>
+        <option>black</option>
+        <option>#aaa</option>
+        <option>#b0b</option>
+        <option>#cc0</option>
+        <option>#0ee</option>
+        <option>#f00</option>
+        <option>#fed</option>
+</select>
+lub wpisz w własny:
+<input onkeyup="document.body.style.background=this.value">
+
+<script>
+        document.querySelector('select').focus();
+</script>
+
+</body>
+</html>

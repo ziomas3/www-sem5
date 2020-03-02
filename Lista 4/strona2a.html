@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    td {height:50px;width:50px;vertical-align:middle;text-align:center;font-size:40px;
+        }
+    table{margin:auto}
+    div{text-align:center;margin:10px;font-size:40px}
+    b { border:1px solid grey;border-radius:10px;background:#def;display:block}
+    #mieszaj {pointer:hand;width:auto;border:1px solid red}
+</style>
+</head>
+<body>
+
+</body>
+<div>Gra w 15</div>
+<table> <!-- pole gry-->
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+</table>
+<div id='wynik' ></div>
+<div id='mieszaj' onclick="mieszaj()">Mieszaj</div>
+<script>
+        var td=document.getElementsByTagName('TD'); //tablica wszystkich komorek
+        
+        for(i=0;i<16;i++)  
+        {
+            if(i<15) td[i].innerHTML="<b>"+(i+1)+"</b>"; //pokazuje nr komorki
+            td[i].nr=i;  //ustawia komorce jej numer
+            td[i].onclick=f; //wywoluje funkcje f po kliknieciu komorki
+        }
+        
+        function ruch(k,j) //zamienia komorki miejscami
+        {
+            td[j].innerHTML=td[k].innerHTML; 
+            td[k].innerHTML='';
+            if(sprawdz()) //wywoluje sprawdzenie wygranej
+                document.getElementById('wynik').innerHTML='Wygrana!!!'; //wyswietla napis wygrana
+        }
+        
+        function f()
+        {
+            //this.style.color='red';
+            var k=this.nr;
+            if(k>3&&td[k-4].innerHTML=='') //sprawdza ruch w gore
+                ruch(k,k-4); //wywoluje funkcje ruch 
+            else
+            if(k<12&&td[k+4].innerHTML=='') //sprawdza ruch w dol
+                ruch(k,k+4);
+            else
+            if(k%4>0&&td[k-1].innerHTML=='') //sprawdza ruch w lewo
+                ruch(k,k-1);
+            else
+            if(k%4<3>0&&td[k+1].innerHTML=='') //sprawdza ruch w prawo 
+                ruch(k,k+1);
+        }
+        
+        function sprawdz() //iteruje po kazdej komorce sprawdzajac czy jest na swoim miejscu
+        {
+            var i;
+            for(i=0;i<15;i++)
+                if(td[i].innerHTML!="<b>"+(i+1)+"</b>")
+                    return false;
+            return true;
+        }
+        
+        function mieszaj() 
+        {
+           document.getElementById('wynik').innerHTML=''; //usuwa napis wygrana
+           var i;
+           for(i=0;i<1000;i++) //losowo minimum 1000 razy zamienai ze soba komorki
+           {
+               
+               var j=Math.floor(Math.random()*16);
+               var k=Math.floor(Math.random()*16);
+               var tmp=td[j].innerHTML;
+               td[j].innerHTML=td[k].innerHTML;
+               td[k].innerHTML=tmp;
+               if(j==k)
+                   i--;
+           }
+        }
+
+</script>
+
+</html>

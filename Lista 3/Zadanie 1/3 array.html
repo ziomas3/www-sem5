@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    div:nth-child(odd) {background:#eee} /* sprawia, że kazdy nieparzysty element div ma szare tło */
+    span {margin:5px} /* ustawia znacznikowi span margines rowny  */
+</style>
+</head>
+
+<body>
+<script>
+  var a1=[1,2,3,2,1,2,3,4,5,8];    //tworzy tablice z 10 wartosciami calkowitymi
+
+  var a2=['Pies','Kaczka','Kura'];    //tworzy tablice z 3 elementami typu string
+
+  var s=''; 	// tworzy tablice znakow z jednym elementem (znakiem spacji)
+
+  for(i=0;i<a1.length;i++) //iteruje od 0 do wielkosci (dlugosci) tablicy a1
+    s+="<span>"+a1[i]+"</span>"; 	//dodaje do tablicy s kolejne dane: znacznik span z zawartoscia (wartosc indexu i tablic a1)
+
+  for(i=0;i<a2.length;i++)	//iteruje od 0 do dlugosci tablicy a2
+    s+="<div>"+a2[i]+"</div>";	//dodaje do tablicy s kolejne dane: znacznik span z zawartoscia (wartosc indexu i tablic a2)
+  document.body.innerHTML+=s; //dopisuje do zawartosci 'ciala' dokumentu wartosc indexu 4,5 tablicy a
+</script>
+
+</body>
+</html>

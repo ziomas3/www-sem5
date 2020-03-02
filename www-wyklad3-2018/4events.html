@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    div:nth-child(odd) {background:#eee}
+    div.opis {border: 1px solid grey; margin: 10px;padding:5px}
+</style>
+</head>
+<body>
+<p>
+Przy  naciśnięcu V strona będzie fioletowa.	
+</p>
+<script>
+addEventListener ("keydown", function(event) {if ( event.keyCode == 86)document.body.style.background = "violet";}) ;
+addEventListener ("keyup"  , function(event) {if ( event.keyCode == 86)document.body.style.background = "";}) ;
+addEventListener ("click"  , function(event) {if(event.which==1) document.body.style.background = "red";
+	                                          else document.body.style.background = "";}) ;
+
+
+document.querySelector('p').style.background='green';
+</script>
+
+</body>
+</html>

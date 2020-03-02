@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    div:nth-child(odd) {background:#eee} /* sprawia, że kazdy nieparzysty element div ma szare tło */
+</style>
+</head>
+<body>
+<script>
+  var a=[];    	//tworzy tablice
+  var i;		//tworzy zmienna
+  var s='';		//tworzy tablice znakow z jednym elementem (znakiem spacji)
+  for(i=0;i<100;i++)	//iteruje  od 0 do 99
+  {
+    a[i]=[];           // a jest tablicą tablic
+    for(j=0;j<100;j++) //iteruje od 0 do 99
+        a[i][j]=i*j;   // tablica tablic wygląda jak tabela dwuwymiarowa, dla kazdych 2 indexow tablicy przypisuje wartosc iloczynu tych indexow
+  }   
+   
+  document.body.innerHTML+=a[4][5]; 	//dopisuje do zawartosci 'ciala' dokumentu wartosc indexu 4,5 tablicy a
+</script>
+
+</body>
+</html>

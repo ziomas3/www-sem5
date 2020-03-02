@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Strona 5</title>
+    <style>
+        img {
+            width: 100%;
+            height: 900px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Antarctic_krill_%28Euphausia_superba%29.jpg/1200px-Antarctic_krill_%28Euphausia_superba%29.jpg">
+    <img src="https://news.nationalgeographic.com/content/dam/news/2016/09/08/humpback-whales/01humpbackwhales.ngsversion.1473420603711.adapt.1900.1.jpg">
+    <img src="https://us-east.manta.joyent.com/condenast/public/cnt-services/production/2016/01/11/5694104497fabb663f34b5d7_whales-beluga-manitoba-cr-alamy.jpg">
+    <img src="https://i.kym-cdn.com/photos/images/newsfeed/000/437/645/a9d.jpg">
+    <script>
+        function zamien() {
+
+            if (i >= paragrafy.length) {
+                paragrafy[paragrafy.length - 1].style.display = "none"
+                i = 0
+                paragrafy[i].style.display = "block";
+            } else {
+                if (i > 0) paragrafy[i - 1].style.display = "none";
+                paragrafy[i].style.display = "block";
+                i++
+            }
+        }
+        var paragrafy = document.querySelectorAll("img");
+        for (var i = 0; i < paragrafy.length; i++)
+            paragrafy[i].style.display = "none";
+        var i = 0;
+        paragrafy[i].style.display = "block";
+        i++;
+        setInterval(zamien, 3000);
+
+    </script>
+
+</body>
+
+</html>

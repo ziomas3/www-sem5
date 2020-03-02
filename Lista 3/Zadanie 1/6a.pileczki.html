@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    #ramka {height:500px;width:500px; border:1px solid grey;margin:auto;position:relative}
+    #mieszaj {pointer:hand}
+    b {display:block;height:10px;width:10px;border-radius:5px;background:red;position:absolute}
+    h1,div {text-align:center;margin:10px}
+</style>
+</head>
+<body>
+
+</body>
+
+<h1>Piłeczki</h1>
+<div id='ramka'>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+    <b></b>
+</div>
+
+<div>
+    <button onclick="run=false"> Stop </button> <!-- ustawia wartosci zmiennej run na false-->
+    <button onclick="run=true;step()"> Start </button><!-- ustawia wartosci zmiennej run na true oraz wywoluje funkcje step() -->
+</div>
+
+
+<script>
+         var b=document.getElementsByTagName('B'); // tworzy tablice elementów 'B' o nazwie b
+        var run=false; //tworzy zmienna run z domyslna wartoscia false
+        var i; //tworzy zmienna i
+        for(i=0;i<b.length;i++) // iteruje od 0 do ilosci znacznikow B
+        {
+            b[i].x=Math.random()*490;  //przypisuje pseudolosowe wartosci puntkow x i y z zakresu 0-490
+            b[i].y=Math.random()*490;
+
+            b[i].vx=Math.random()*20-10;	//przypisuje pseudolosowe wartosci predkosci skladowych wektora v z zakresu -10 do 10
+            b[i].vy=Math.random()*20-10;
+            
+            b[i].style.left=b[i].x+"px"; //ustawia odleglosc od krawedzi "boxa" zalezna od punktow x i y
+            b[i].style.top =b[i].y+"px";
+            
+            b[i].onclick=stop; //po kliknieciu uruchamia funkcje stop
+        }
+
+    function step()
+    {
+        var i; 	//tworzy zmienna	
+        for(i=0;i<b.length;i++)	//iteruje po kazdym elemencie tablicy b
+        {
+            b[i].x+=b[i].vx;  // dodaje do wartosci zmiennej pozycyjnej wartosc skladowej predkosci wektora 
+            b[i].y+=b[i].vy;
+            
+            if(b[i].x>490 || b[i].x<0)  b[i].vx*=-1; //zmienia skladowa wektora predkosci na przeciwna po przekroczeniu granicy boxa
+            if(b[i].y>490 || b[i].y<0)  b[i].vy*=-1;
+            
+            b[i].style.left=b[i].x+"px"; //zmienia ustawienie objektu w boxie na podstawie nowych puntkow x i y
+            b[i].style.top =b[i].y+"px";
+        }
+        
+        if(run)
+            setTimeout(step,20); //uruchamia fukncje step co 20ms
+        
+    }
+    
+    function stop() //zatrzymuje pileczke (po kliknieciu)
+    {
+        this.vx=0;
+        this.vy=0;
+    }
+</script>
+
+</html>

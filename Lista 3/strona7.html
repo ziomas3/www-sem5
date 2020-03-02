@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Strona 7</title>
+    <style>
+        div {
+            display: block;
+            height: 40px;
+            width: 40px;
+            border-radius: 100px;
+            background: red;
+            position: absolute;
+            margin-left: 49%;
+            margin-top: 20%;
+        }
+
+        button {
+            margin-left: 20%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="left()">←</button>
+    <button onclick="up()">↑</button>
+    <button onclick="right()">→</button>
+    <button onclick="down()">↓</button>
+    <div> </div>
+    <script>
+        var kolo = document.querySelector("div");
+        function left() {
+            kolo.style.marginLeft="0%";
+            kolo.style.marginTop="20%";
+        }
+        function right() {
+            kolo.style.marginLeft="97%";
+            kolo.style.marginTop="20%";
+        }
+        function up() {
+            kolo.style.marginLeft="49%";
+            kolo.style.marginTop="0%";
+        }
+        function down() {
+            kolo.style.marginLeft="49%";
+            kolo.style.marginTop="45%";
+        }
+
+    </script>
+</body>
+
+</html>

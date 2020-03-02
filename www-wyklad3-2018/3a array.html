@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    div:nth-child(odd) {background:#eee}
+</style>
+</head>
+<body>
+<script>
+  var a=[];    // pusta tablica
+  var i;         
+  var s='';    // pusty napis
+  for(i=0;i<31;i++)
+		a[i]=i+'='+i*i;           //kwadraty liczb naturalnych
+  for(i=0;i<a.length;i++)
+		s+="<div>"+a[i]+"</div>"; // doklejamy s elkementy tablicy
+  document.body.innerHTML+=s;     // Dopisujemy go do ciała dokumentu
+</script>
+
+</body>
+</html>

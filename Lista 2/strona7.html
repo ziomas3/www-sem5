@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>strona 5</title>
+  <style>div:hover 
+    {
+        font-weight:bold;
+    }
+    input,button
+    {
+        float:left;    
+    }
+    div
+    {
+        clear:both;
+        float:left;
+        margin:2px;
+        font-family:times;
+        font-size:15px;
+        border: 2px grey solid;
+    }
+  
+  </style>
+</head>
+
+<body>
+        <input onchange="document.getElementById('wynik').innerHTML+='</br>'+this.value+'='+eval(this.value)">
+        <button onclick="location=location">Wyczyść</button>
+        <div id="wynik"></div>
+ </body>
+</html>

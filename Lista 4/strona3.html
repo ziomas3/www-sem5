@@ -1,0 +1,104 @@
+<!DOCTYPE html>  
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+	h1 {font-size:50px}
+	#cel,#x{font-size:50px}
+	button{font-size:20px}
+	h1,div {text-align:center}
+	div {font-size:30px}
+	span {
+		background:yellow;
+		border:1px solid grey;
+		border-radius:5px;
+		margin:10px;
+		padding:10px;
+		line-height:80px;
+		
+		}/*  by wygrac gre w binary wystarczy rozumiec ja jako wpisywanei liczby w postaci binernej od lewej strony, gdzie zawsze zaczynamy z jedynka a potem edytujemy kolejne miejsce. wciskajac +1 ustawiamy na nim jedynke, w przecwnym wypadku zostanie 0*/
+</style>
+</head>
+<body>
+	 <h1>Binary</h1>
+	 
+	<div id='cel'></div>
+	<div id='x'></div>
+	
+	<div>
+		<span onclick='razy()'>*3</span>  <span id='dodaj'>+1</span><span id='dodaj2'>+2</span>
+	</div>
+
+	<div>
+		<button onclick='losuj(100)'>Do 100</button>
+		<button onclick='losuj(1000)'>Do 1000</button>
+		<button onclick='losuj(10000)'>Do 10000</button>
+		<button onclick='losuj(100000)'>Do 10000</button>
+		<button onclick='losuj(1000000)'>Do 100000</button>
+	</div>
+
+	<div>
+		Otrzymaj podaną liczbę z jedynki za pomocą mnożenia przez 3 i dodawania jedynki lub 2.
+		<br/>
+		Uwaga: nie można wykonać dwóch dodawań bezpośrednio po sobie.
+	</div>
+
+<script>
+	
+	var cel=document.querySelector('#cel');
+	var x=document.querySelector('#x');
+	var dodaj=document.querySelector('#dodaj');
+
+	losuj(100);
+
+	function losuj(n)
+	{	
+		cel.innerHTML=Math.ceil(Math.random()*n);
+		x.innerHTML=1;
+		dodaj.onclick=plus;
+		dodaj2.onclick=null;
+		dodaj.style.background='';
+		dodaj2.style.background='grey';
+	}
+
+	function razy()
+	{
+		x.innerHTML*=3;
+		sprawdz();
+		dodaj.onclick=plus;
+		dodaj2.onclick=plus2;
+		dodaj.style.background='';
+		dodaj2.style.background='';
+	}
+
+	function plus()
+	{   
+		x.innerHTML=Number(x.innerHTML)+1;
+		sprawdz();
+		dodaj.onclick=null;
+		dodaj2.onclick=null;
+		dodaj.style.background='grey';
+		dodaj2.style.background='grey';
+	}
+	function plus2()
+	{   
+		x.innerHTML=Number(x.innerHTML)+2;
+		sprawdz();
+		dodaj.onclick=null;
+		dodaj2.onclick=null;
+		dodaj.style.background='grey';
+		dodaj2.style.background='grey';
+	}
+
+	function sprawdz()
+	{
+		if(Number(x.innerHTML) > Number(cel.innerHTML))
+			cel.innerHTML='Niestety przegrałeś';
+		if(Number(x.innerHTML)==Number(cel.innerHTML))
+			cel.innerHTML='Gratuluję wygranej!!!';		
+	}
+
+</script>
+
+</body>
+</html>

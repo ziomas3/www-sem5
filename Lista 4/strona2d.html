@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    td {height:50px;width:50px;vertical-align:middle;text-align:center;font-size:40px;
+        }
+    table{margin:auto}
+    div{text-align:center;margin:10px;font-size:40px}
+    b { border:1px solid grey;border-radius:10px;background:#def;display:block}
+    #mieszaj {pointer:hand;width:auto;border:1px solid red}
+</style>
+</head>
+<body>
+
+</body>
+<div>Gra w 15</div>
+<table>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+</table>
+<div id='mieszaj' onclick="mieszaj()">Mieszaj</div>
+<script>
+        var td=document.getElementsByTagName('TD');
+        var czasstart= { hours: 0, minutes: 0, seconds: 0 };
+        
+        
+        for(i=0;i<16;i++)  
+        {
+            if(i<15) td[i].innerHTML="<b>"+(i+1)+"</b>";
+            td[i].nr=i;
+            td[i].onclick=f;
+        }
+        
+        function ruch(k,j)
+        {
+            td[j].innerHTML=td[k].innerHTML;
+            td[k].innerHTML='';
+            if(sprawdz())
+            {
+                if (czasstart.hours!=0)
+                {
+                var czas = new Date();
+                var data= { hours: 0, minutes: 0, seconds: 0 }
+                data.hours=czas.getHours()-czasstart.hours;
+                data.minutes=czas.getMinutes()-czasstart.minutes;
+                data.seconds=czas.getSeconds()-czasstart.seconds;
+                alert("Wygrana!!! "+data.hours + ":" + data.minutes + ":" + data.seconds);
+                }
+                alert("Wygrana!!! (nie mieszałes/as :<)");
+            }
+        }
+        
+        function f()
+        {
+            //this.style.color='red';
+            var k=this.nr;
+            if(k>3&&td[k-4].innerHTML=='')
+                ruch(k,k-4);
+            else
+            if(k<12&&td[k+4].innerHTML=='')
+                ruch(k,k+4);
+            else
+            if(k%4>0&&td[k-1].innerHTML=='')
+                ruch(k,k-1);
+            else
+            if(k%4<3>0&&td[k+1].innerHTML=='')
+                ruch(k,k+1);
+        }
+        
+        function sprawdz()
+        {
+            var i;
+            for(i=0;i<15;i++)
+                if(td[i].innerHTML!="<b>"+(i+1)+"</b>")
+                    return false;
+            return true;
+        }
+        
+        function mieszaj()
+        {
+           var i;
+           for(i=0;i<1000;i++)
+           {
+                var czas = new Date();
+                czasstart.hours=czas.getHours();
+                czasstart.minutes=czas.getMinutes();
+                czasstart.seconds=czas.getSeconds();
+                var j=Math.floor(Math.random()*16);
+                var k=Math.floor(Math.random()*16);
+                var tmp=td[j].innerHTML;
+                td[j].innerHTML=td[k].innerHTML;
+                td[k].innerHTML=tmp;
+                if(j==k)
+                   i--;
+           }
+           console.log(rozwiazywalny());
+            if (!rozwiazywalny())
+            {
+                mieszaj();
+            }
+        }
+        function rozwiazywalny()
+        {
+            var zamiany = 0;
+            var rzad = 0; 
+            var rzadzpustym = 0; 
+
+            for (var i = 0; i < td.length; i++)
+            {
+                if (i % 4 == 0) 
+                    rzad++;
+                
+                if (td[i].innerHTML == 0) //jestu jest tu pusty klocek
+                    rzadzpustym = rzad; 
+                for (var j = i + 1; j < td.length; j++)
+                {
+                    if (td[i].innerHTML > td[j].innerHTML && td[j].innerHTML != 0)
+                    {
+                        zamiany++;
+                    }
+                }
+            }
+
+    
+            if (rzadzpustym % 2 == 0) { // rzadzpustym nieparzysty 
+                return zamiany % 2 == 0;
+            } else { // rzadzpustym parzysty
+                return zamiany % 2 != 0;
+            }
+        }
+        
+
+</script>
+
+</html>

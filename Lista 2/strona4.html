@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>strona 4</title>
+  <style>
+	table.A tr,td
+	{
+		border: 2px solid blue;
+	}
+	table.A th 
+	{
+		border: 2px solid mediumseagreen;
+	}
+	table.B tr,td
+	{
+		border: collapse
+	}
+	table.B th 
+	{
+		border: 2px solid yellow;
+	}
+	table.C tr,td
+	{
+		border-collapse: collapse;
+		border: 2px solid blue;
+	}
+	table.C th 
+	{
+		border: 2px solid mediumseagreen;
+	}
+	table.C th
+	{
+		text-align: center;
+	}
+	table
+	{
+		width: 400px;
+	}
+	table.A
+	{
+		border: 2px solid blue;
+		font-weight:bold;
+		font-family: 'Times New Roman', Times, serif;
+		background-color: goldenrod;
+		color:fuchsia;
+		text-align:center;
+	}
+	table.B
+	{
+		border: 2px solid black;
+		font-weight:lighter;
+		font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		background-color: aqua;
+		color:orangered;
+		text-align:justify; 
+		border-collapse: collapse;
+	}
+	table.C
+	{
+		border: 2px solid yellow;
+		font-weight:600;
+		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		background-color: black;
+		color:green;
+		text-align:end;
+
+	}
+  </style>
+</head>
+
+<body>
+ <table class="A">
+	 <tr><th>hello</th><th>hello</th><th>hello</th></tr>
+	 <tr><td>hello</td><td>hello</td><td>hello</td></tr>
+	 <tr><td>hello</td><td>hello</td><td>hello</td></tr>
+	 <tr><td>hello</td><td>hello</td><td>hello</td></tr>
+ </table>
+  <table class="B">
+	<tr><th>hello</th><th>hello</th><th>hello</th></tr>
+	<tr><td>hello</td><td>hello</td><td>hello</td></tr>
+	<tr><td>hello</td><td>hello</td><td>hello</td></tr>
+	<tr><td>hello</td><td>hello</td><td>hello</td></tr>
+ </table>
+  <table class="C">
+	<tr><th>miesiac</th><th colspan="2">co kupic</th><th>budzet</th></tr>
+	<tr><td>styczen</td><td>biurko</td><td>szafka</td><td rowspan="2">500zł</td></tr>
+	<tr><td>luty</td><td>lampka</td><td>lozko</td></tr>
+	<tr><td>marzec</td><td>rower</td><td>auto</td><td>5000zł</td></tr>
+ </table>
+ </body>
+</html>

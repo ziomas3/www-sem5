@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <style>
+       table,p {background:black;margin:auto;}
+       td {height:100px;width:100px;border-radius:50px;}
+       p {height:300px;width:20px;}
+    </style>
+</head>
+
+
+
+<body>
+
+<table id='s'>
+    <tr><td id='r'></td></tr>
+    <tr><td id='y'></td></tr>
+    <tr><td id='g'></td></tr>
+</table>
+<p></p>
+
+</body>
+
+
+
+<script>
+  
+  var s=document.getElementById('s');      //selektory objektów o danym id
+  var r=document.getElementById('r');    
+  var y=document.getElementById('y');    
+  var g=document.getElementById('g');    
+  var i=9; //tworzy zmienna z wartoscia startowa 9
+  var wlaczone=false; 		//ustawia zmienna z wartoscia poczatkowa false
+  var clock; 		// tworzy zmienna
+  
+   
+  function kolory(a,b,c) //funkcja przyjmuje 3 zmienne, ktore ustawia jako wartosc tla obiektow
+  {
+      r.style.background=a;
+      y.style.background=b;
+      g.style.background=c;
+  }
+
+  
+   function zmiana_swiatel() 
+   {
+       i=(i+1)%10; // zmiana licznika 
+       if(i==0) kolory('red','black','black');
+       if(i==4) kolory('red','yellow','black');
+       if(i==5) kolory('black','black','green');
+       if(i==9) kolory('black','yellow','black');
+   } 
+
+   function zmiana_swiatel2() //migajace zolte swiatlo
+   {
+       i=(i+1)%2; // zmiana licznika
+       if(i==0) kolory('black','yellow','black');
+       if(i==1) kolory('black','black','black');
+   } 
+
+    
+   wlaczone=false; //zbedne powtorzenie 35 linii
+   clock=setInterval (zmiana_swiatel2,1000); // uruchom zmianę świateł raz co sekundę / domyslnie wlacza migajace swiatlo
+   
+   s.onclick=function(){ //wlacza funkcje po kliknieciu w sygnalizator (tabele)
+                            clearInterval(clock); //usuwa stary interwal czasu
+                            wlaczone=!wlaczone; //zmienia wartosc zmiennej wlaczone na przeciwna
+                            if(wlaczone) //jesli wlaczone jest true
+                                clock=setInterval (zmiana_swiatel,1000); //wlacza odpalanie funkcji zmiana_swiatel co minute
+                            else	//jesli wlaczone jest false
+                                clock=setInterval (zmiana_swiatel2,1000);//wlacza odpalanie funkcji zmiana_swiatel2 co minute
+                       };
+   
+</script>
+
+</html>

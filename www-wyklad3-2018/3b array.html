@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    table {border-collapse:collapse}
+    td {border:1px solid grey;padding:10px}
+</style>
+</head>
+<body>
+	<h1>Tablice tablic = tablice dwuwymiarowe</h1>
+<script>
+
+  var i,j;
+  
+  var a=[];     //pusta tablica
+  for(i=0;i<10;i++)
+  {
+    a[i]=[];           // a jest tablicą tablic
+    for(j=0;j<10;j++) 
+        a[i][j]=20*i+j;   // tablica tablic wygląda jak tabela dwuwymiarowa 
+  }   
+
+  document.body.innerHTML+=pokazTablice(a);
+  
+  var b=[[1,2,3],['jeden','dwa','trzy'],['one','two','three']];
+    
+  document.body.innerHTML+=pokazTablice(b);
+
+
+  function pokazTablice(a)
+  {	
+	  var i,j,s='';   
+	  s+='<table>';
+	  for(i=0;i<a.length;i++)
+	  { s+='<tr>';
+		for(j=0;j<a[i].length;j++)
+			s+='<td>'+a[i][j]+ '</td>';   // tablica tablic wygląda jak tabela dwuwymiarowa 
+		s+='</tr>';    
+	  }
+	  s+='</table>';
+	  return s;
+  }
+
+</script>
+</body>
+</html>
